@@ -44,3 +44,25 @@ Created `jest.config.js` with the required Jest settings and updated `package.js
 * `npm test` – Run tests
 * `npm run test:watch` – Run tests in watch mode
 * `npm run test:coverage` – Generate code coverage reports
+
+## Prompt 4
+Write boilerplate code to connect the database and start the server.
+
+### AI Response
+
+Created the following boilerplate files:
+
+#### `src/config/db.js`
+- Connects to MongoDB using Mongoose.
+- Reads the `MONGO_URI` environment variable.
+- Logs a successful connection or exits on connection failure.
+
+#### `src/app.js`
+- Creates and configures the Express application.
+- Adds essential middleware (`cors` and `express.json()`).
+- Exports the Express app.
+
+#### `src/server.js`
+- Loads environment variables using `dotenv`.
+- Connects to MongoDB.
+- Starts the Express server after a successful database connection using the configured `PORT` (default: `5000`).
