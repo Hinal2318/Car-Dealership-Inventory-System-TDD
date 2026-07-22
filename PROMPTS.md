@@ -130,3 +130,22 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve the implementation without changing its behavior.
 - Run all tests to ensure they continue to pass.
+
+## Prompt 7
+Write boilerplate code for the authentication controller and router setup.
+
+### AI Response
+
+Created the following boilerplate files:
+
+#### `src/controllers/authController.js`
+- Created `register(req, res)` and `login(req, res)` controller functions.
+- Connected each controller to its corresponding service (`registerUser` and `loginUser`).
+- Returned appropriate JSON responses with the correct HTTP status codes.
+- Added basic error handling for invalid requests.
+
+#### `src/routers/authRouter.js`
+- Created an Express router.
+- Added `POST /register` route mapped to `authController.register`.
+- Added `POST /login` route mapped to `authController.login`.
+- Exported the router for use in the main application.
