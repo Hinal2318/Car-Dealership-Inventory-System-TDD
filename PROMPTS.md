@@ -66,3 +66,34 @@ Created the following boilerplate files:
 - Loads environment variables using `dotenv`.
 - Connects to MongoDB.
 - Starts the Express server after a successful database connection using the configured `PORT` (default: `5000`).
+
+## Prompt 5
+What test cases should I write for the `registerUser` service? Guide me to implement it step by step instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `registerUser` service:
+
+- Create a user with a hashed password.
+- Reject registration if the email already exists.
+- Throw an error if the email or password is missing.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/registerUser.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Write tests for each expected behavior.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/registerUser.js`.
+- Validate that the required fields are provided.
+- Check whether a user with the given email already exists.
+- Hash the password before saving it.
+- Save the new user and return the created user.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve code readability if needed.
+- Ensure all tests continue to pass after refactoring.
