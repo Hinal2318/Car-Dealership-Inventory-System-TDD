@@ -97,3 +97,36 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve code readability if needed.
 - Ensure all tests continue to pass after refactoring.
+
+## Prompt 6
+Guide me step by step to implement the `loginUser` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `loginUser` service:
+
+- Return a JWT token when the email and password are correct.
+- Throw an error if the password is incorrect.
+- Throw an error if the email does not exist.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/loginUser.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Create a test user with a hashed password.
+- Write tests for successful login, incorrect password, and unknown email.
+- Verify the returned JWT contains the expected payload (`userId` and `role`).
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/loginUser.js`.
+- Validate that the email and password are provided.
+- Find the user by email.
+- Compare the provided password with the stored hashed password using `bcrypt.compare()`.
+- Generate and return a JWT using `jwt.sign()` with the user's ID and role.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve the implementation without changing its behavior.
+- Run all tests to ensure they continue to pass.
