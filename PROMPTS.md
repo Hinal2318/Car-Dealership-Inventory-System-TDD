@@ -335,3 +335,37 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Simplify and organize the query-building logic.
 - Run all tests to ensure they continue to pass.
+
+## Prompt 13
+Guide me step by step to implement the `purchaseVehicle` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `purchaseVehicle` service:
+
+- Decrease the vehicle quantity by 1 when stock is available.
+- Throw `"insufficient stock"` when the vehicle quantity is 0.
+- Throw `"Vehicle not found"` when the vehicle ID is invalid or does not exist.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/purchaseVehicle.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Create sample vehicle records with different stock quantities.
+- Write a test to verify the quantity decreases by 1 after a successful purchase.
+- Write tests to verify appropriate errors are thrown when stock is unavailable or the vehicle does not exist.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/purchaseVehicle.js`.
+- Validate that the vehicle ID is provided and valid.
+- Find the vehicle by its ID.
+- Check whether sufficient stock is available.
+- Decrease the quantity by 1 and save the updated vehicle.
+- Return the updated vehicle document.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve code readability while preserving functionality.
+- Run all tests to ensure they continue to pass.
