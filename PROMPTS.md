@@ -199,3 +199,31 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve code readability and remove any duplication.
 - Run all tests again to ensure they continue to pass.
+
+## Prompt 10
+Guide me step by step to implement the `viewAllVehicles` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test case for the `viewAllVehicles` service:
+
+- Return all vehicles stored in the database.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/viewAllVehicles.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Seed the database with sample vehicle records.
+- Write a test to verify that all vehicles are returned.
+- Run the test and confirm it fails.
+
+#### Step 2 (GREEN)
+- Create `src/services/viewAllVehicles.js`.
+- Import the `Vehicle` model.
+- Retrieve and return all vehicle documents using `Vehicle.find({})`.
+- Run the test again and verify it passes.
+
+#### Step 3 (REFACTOR)
+- Keep the implementation simple and readable.
+- Run all tests to ensure they continue to pass.
