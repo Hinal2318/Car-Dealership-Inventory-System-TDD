@@ -369,3 +369,37 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve code readability while preserving functionality.
 - Run all tests to ensure they continue to pass.
+
+## Prompt 14
+Guide me step by step to implement the `restockVehicle` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `restockVehicle` service:
+
+- Increase the vehicle quantity by the specified amount.
+- Throw an error if the restock amount is negative.
+- Throw an error if the restock amount is zero.
+- Throw an error if the restock amount is not a whole number.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/restockVehicle.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Create a sample vehicle record.
+- Write a test to verify the vehicle quantity increases by the specified amount.
+- Write tests to verify an error is thrown for negative, zero, or non-whole-number restock amounts.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/restockVehicle.js`.
+- Validate that the restock amount is a positive whole number.
+- Find the vehicle by its ID.
+- Increase the vehicle quantity by the specified amount.
+- Save and return the updated vehicle document.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve code readability while preserving functionality.
+- Run all tests to ensure they continue to pass.
