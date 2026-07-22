@@ -403,3 +403,60 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve code readability while preserving functionality.
 - Run all tests to ensure they continue to pass.
+
+## Prompt 15
+Write boilerplate code for the vehicle controller and router setup.
+
+### AI Response
+
+Generated the boilerplate for the following files:
+
+#### `src/controllers/vehicleController.js`
+- Created controller handlers for:
+  - `addVehicle`
+  - `getAll`
+  - `search`
+  - `update`
+  - `remove`
+  - `purchase`
+  - `restock`
+- Connected each handler to its corresponding service.
+- Returned appropriate JSON responses and HTTP status codes.
+- Included basic error handling.
+
+#### `src/routers/vehicleRouter.js`
+- Created an Express router.
+- Added routes for adding, viewing, searching, updating, deleting, purchasing, and restocking vehicles.
+- Applied `authMiddleware` to all protected routes.
+- Applied `adminMiddleware` to delete and restock routes.
+- Mounted the router in `app.js` under `/api/vehicles`.
+
+---
+
+## Prompt 16
+Guide me step by step to implement integration tests for the authentication and vehicle routes using Supertest.
+
+### AI Response
+
+Provided guidance for creating integration tests using **Supertest**.
+
+#### `tests/auth.test.js`
+- Guided the implementation of the complete authentication flow:
+  - Register a user.
+  - Log in and obtain a JWT.
+  - Access a protected route using the returned token.
+- Used AI assistance to generate the initial boilerplate and additional code for the integration test.
+
+#### `tests/vehicle.test.js`
+- Guided the implementation of integration tests for all vehicle routes.
+- Included tests for:
+  - Authentication (`401 Unauthorized` when no token is provided).
+  - Authorization (`403 Forbidden` for non-admin users).
+  - Add vehicle.
+  - View all vehicles.
+  - Search vehicles.
+  - Update vehicle.
+  - Purchase vehicle.
+  - Restock vehicle.
+  - Delete vehicle.
+- Used AI assistance to generate the initial boilerplate and additional help to write code for the integration test implementation.
