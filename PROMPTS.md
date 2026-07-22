@@ -149,3 +149,22 @@ Created the following boilerplate files:
 - Added `POST /register` route mapped to `authController.register`.
 - Added `POST /login` route mapped to `authController.login`.
 - Exported the router for use in the main application.
+
+## Prompt 8
+Write boilerplate code to implement middleware for protecting routes using JWT authentication and role-based authorization.
+
+### AI Response
+
+Implemented the following middleware:
+
+#### `src/middleware/authMiddleware.js`
+- Reads the `Authorization` header.
+- Validates the `Bearer <token>` format.
+- Verifies the JWT using `jwt.verify()` and `JWT_SECRET`.
+- Attaches the decoded payload to `req.user`.
+- Returns `401 Unauthorized` if the token is missing or invalid.
+
+#### `src/middleware/adminMiddleware.js`
+- Checks whether `req.user.role` is `"admin"`.
+- Calls `next()` for authorized users.
+- Returns `403 Forbidden` for users without admin privileges.
