@@ -168,3 +168,34 @@ Implemented the following middleware:
 - Checks whether `req.user.role` is `"admin"`.
 - Calls `next()` for authorized users.
 - Returns `403 Forbidden` for users without admin privileges.
+
+## Prompt 9
+Guide me step by step to implement the `addVehicle` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `addVehicle` service:
+
+- Create a vehicle when all required fields are valid.
+- Throw an error if any required field is missing.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/addVehicle.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Write a test to verify a vehicle is created successfully with valid data.
+- Write tests to verify an error is thrown when each required field is missing.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/addVehicle.js`.
+- Validate that all required fields are provided.
+- Validate input values (e.g., ensure price and quantity are not negative, if applicable).
+- Create and save the vehicle in the database.
+- Return the created vehicle document.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve code readability and remove any duplication.
+- Run all tests again to ensure they continue to pass.
