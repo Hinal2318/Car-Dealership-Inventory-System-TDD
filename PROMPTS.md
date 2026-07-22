@@ -227,3 +227,36 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Keep the implementation simple and readable.
 - Run all tests to ensure they continue to pass.
+
+## Prompt 11
+Guide me step by step to implement the `updateVehicle` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `updateVehicle` service:
+
+- Update vehicle fields for a valid vehicle ID.
+- Throw `"Vehicle not found"` if the vehicle ID is invalid.
+- Throw `"Vehicle not found"` if the vehicle ID is missing.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/updateVehicle.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Create a sample vehicle record.
+- Write a test to verify the vehicle is updated successfully.
+- Write tests to verify an error is thrown for an invalid or missing vehicle ID.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/updateVehicle.js`.
+- Validate that the vehicle ID is provided and valid.
+- Update the vehicle using its ID.
+- Return the updated vehicle document.
+- Throw `"Vehicle not found"` if no matching vehicle exists.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Improve code readability while preserving functionality.
+- Run all tests to ensure they continue to pass.
