@@ -297,3 +297,41 @@ Then provided step-by-step guidance following the TDD approach.
 
 * Refactor the implementation to improve readability without changing its behavior.
 * Run the complete test suite to ensure all tests continue to pass.
+
+## Prompt 13
+Guide me step by step to implement the `searchVehicles` service using TDD instead of giving the complete code.
+
+### AI Response
+
+Suggested the following test cases for the `searchVehicles` service:
+
+- Filter vehicles by `make`.
+- Filter vehicles by `model`.
+- Filter vehicles by `category`.
+- Filter vehicles by minimum price.
+- Filter vehicles by maximum price.
+- Filter vehicles using a combination of criteria.
+- Return an empty array when no vehicles match the search criteria.
+
+Then provided step-by-step guidance following the TDD approach:
+
+#### Step 1 (RED)
+- Create `tests/services/searchVehicles.test.js`.
+- Set up an in-memory MongoDB database for testing.
+- Seed the database with sample vehicle records.
+- Write separate tests for each filter (`make`, `model`, `category`, `minPrice`, `maxPrice`).
+- Write a test for combined filters.
+- Write a test to verify an empty array is returned when no vehicles match.
+- Run the tests and confirm they fail.
+
+#### Step 2 (GREEN)
+- Create `src/services/searchVehicles.js`.
+- Build a query object from the provided search parameters.
+- Use case-insensitive regular expressions for text fields.
+- Use `$gte` and `$lte` for price range filtering.
+- Query the database and return the matching vehicles.
+- Run the tests again and verify they pass.
+
+#### Step 3 (REFACTOR)
+- Simplify and organize the query-building logic.
+- Run all tests to ensure they continue to pass.

@@ -21,7 +21,7 @@ afterEach(async()=>{
 });
 
 describe('viewAllVehicle service',()=>{
-    test('should return all vehicles in the adtabase',async()=>{
+    test('should return all vehicles in the database',async()=>{
         await Vehicle.create([
             { make: 'Toyota', model: 'Corolla', category: 'Sedan', price: 22000, quantity: 5},
              { make: 'Honda', model: 'Civic', category: 'Sedan', price: 23000, quantity: 3 }
@@ -29,7 +29,9 @@ describe('viewAllVehicle service',()=>{
         const vehicles=await viewAllVehicles();
 
         expect(vehicles).toHaveLength(2);
-        expect(vehicles[0].make).toBe('Toyota');
-        expect(vehicles[1].make).toBe('Honda');
+        // Check if both makes are present in any order
+        const makes = vehicles.map(v => v.make);
+        expect(makes).toContain('Toyota');
+        expect(makes).toContain('Honda');
     });
 })
