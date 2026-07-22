@@ -260,3 +260,40 @@ Then provided step-by-step guidance following the TDD approach:
 #### Step 3 (REFACTOR)
 - Improve code readability while preserving functionality.
 - Run all tests to ensure they continue to pass.
+
+# Prompt 12
+
+Guide me step by step to implement the `deleteVehicle` service using TDD instead of giving the complete code.
+
+## AI Response
+
+Suggested the following test cases for the `deleteVehicle` service:
+
+* Delete a vehicle for a valid ID.
+* Throw **"Vehicle not found"** for an invalid ID.
+* Throw **"Vehicle not found"** if the ID is missing.
+
+Then provided step-by-step guidance following the TDD approach.
+
+### Step 1 (RED)
+
+* Create `tests/services/deleteVehicle.test.js`.
+* Set up an in-memory MongoDB database for testing.
+* Create a test vehicle before each deletion test.
+* Write tests for successful deletion, invalid ID, and missing ID.
+* Verify that the vehicle is removed from the database.
+* Run the tests and confirm they fail.
+
+### Step 2 (GREEN)
+
+* Create `src/services/deleteVehicle.js`.
+* Validate the provided vehicle ID.
+* Find the vehicle by its ID.
+* Throw a **"Vehicle not found"** error if no matching vehicle exists.
+* Delete the vehicle and return the deleted document.
+* Run the tests again and verify they all pass.
+
+### Step 3 (REFACTOR)
+
+* Refactor the implementation to improve readability without changing its behavior.
+* Run the complete test suite to ensure all tests continue to pass.
