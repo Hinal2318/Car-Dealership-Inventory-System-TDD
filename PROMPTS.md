@@ -460,3 +460,73 @@ Provided guidance for creating integration tests using **Supertest**.
   - Restock vehicle.
   - Delete vehicle.
 - Used AI assistance to generate the initial boilerplate and additional help to write code for the integration test implementation.
+
+## Prompt 17
+Implement the authentication context for my React frontend using Context API and JWT. Create the required boilerplate and complete the implementation, then integrate it into the application.
+
+### AI Response
+
+Provided significant assistance implementing the authentication context.
+
+#### `src/context/AuthContext.jsx`
+- Created the authentication context using React Context API.
+- Managed authentication state using `useState` and `useEffect`.
+- Implemented `login`, `register`, and `logout` functions.
+- Stored and retrieved authentication data from `localStorage`.
+- Decoded the JWT to extract user information.
+- Synchronized authentication state with the application.
+
+#### `src/main.jsx`
+- Wrapped the application with `AuthProvider`.
+- Integrated the authentication context into the React application.
+
+#### Verification
+- Ran ESLint to verify the implementation.
+- Confirmed the project passed all linting checks successfully.
+
+## Prompt 18
+Implement protected routing for my React application. Generate most of the required code and explain any necessary file changes in the chat instead of modifying the project files directly.
+
+### AI Response
+
+Provided substantial implementation assistance for protected routing.
+
+#### `src/components/ProtectedRoute.jsx`
+- Generated the `ProtectedRoute` component.
+- Retrieved authentication state from `AuthContext`.
+- Redirected unauthenticated users to the login page.
+- Added optional `adminOnly` support for role-based authorization.
+- Rendered protected components only for authorized users.
+
+#### `src/App.jsx`
+- Generated the routing configuration using React Router.
+- Added public routes for `/login` and `/register`.
+- Protected the `/dashboard` route.
+- Protected the `/admin` route with admin-only access.
+- Added a fallback route for unknown paths.
+
+## Prompt 19
+
+Implement the Login and Register pages for my React application. Generate most of the required code and explain all necessary integration steps in the chat instead of modifying the project files directly.
+
+### AI Response
+
+Provided substantial implementation assistance for the authentication pages.
+
+#### `src/pages/LoginPage.jsx`
+
+* Generated the login page UI.
+* Integrated the page with `AuthContext.login()`.
+* Added email and password form handling.
+* Implemented loading and error states.
+* Redirected authenticated users to the dashboard.
+* Explained the required updates in `App.jsx` to use the new page.
+
+#### `src/pages/RegisterPage.jsx`
+
+* Generated the registration page UI.
+* Integrated the page with `AuthContext.register()`.
+* Added client-side password confirmation validation.
+* Implemented loading and error states.
+* Redirected users to the dashboard after successful registration.
+* Explained the required updates in `App.jsx` to use the new page.
