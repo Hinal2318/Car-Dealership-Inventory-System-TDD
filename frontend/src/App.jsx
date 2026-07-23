@@ -3,11 +3,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
+import AdminPage from './pages/AdminPage';
 import Navbar from './components/Navbar';
 
 // Temporary placeholder component (replace with AdminPage later)
 // const Dashboard = () => <div className="p-8 text-center text-xl font-semibold">Dashboard Page (Protected)</div>;
-const Admin = () => <div className="p-8 text-center text-xl font-semibold">Admin Page (Admin Only)</div>;
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
             path="/admin"
             element={
               <ProtectedRoute adminOnly={true}>
-                <Admin />
+                <AdminPage />
               </ProtectedRoute>
             }
           />

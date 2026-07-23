@@ -556,3 +556,49 @@ Provided substantial implementation assistance for the vehicle dashboard.
 * Implemented purchase functionality using `POST /api/vehicles/:id/purchase`.
 * Updated the purchased vehicle's quantity in local state.
 * Added loading, error, empty-state, and success feedback handling.
+
+## Prompt 21
+
+Implement vehicle search functionality for my React frontend. Generate most of the required code, integrate it with the dashboard, fix any issues that arise, and explain the necessary changes in the chat instead of modifying the project files directly.
+
+### AI Response
+
+Provided substantial implementation assistance for vehicle search.
+
+#### `src/components/SearchBar.jsx`
+
+* Generated a reusable `SearchBar` component.
+* Added inputs for make, model, category, minimum price, and maximum price.
+* Passed search filters to the parent component through an `onSearch(filters)` callback.
+* Added a reset option to clear filters and reload all vehicles.
+
+#### `src/pages/DashboardPage.jsx`
+
+* Integrated the `SearchBar` component.
+* Implemented vehicle search using `GET /api/vehicles/search` with query parameters.
+* Reloaded the full vehicle list when filters were cleared.
+* Fixed React hook and ESLint issues related to data fetching and `useEffect`.
+* Verified the implementation by running ESLint successfully.
+
+## Prompt 22
+
+Implement the admin page for my React frontend. Generate most of the required code, then modify the registration flow so a user can choose to register as either a regular user or an admin for testing purposes. Explain all required changes in the chat instead of modifying the project files directly.
+
+### AI Response
+
+Provided substantial implementation assistance for the admin functionality.
+
+#### `src/pages/AdminPage.jsx`
+
+* Generated the admin dashboard.
+* Restricted access using the `adminOnly` protected route.
+* Displayed the list of vehicles.
+* Added Edit, Delete, and Restock actions.
+* Integrated the `VehicleForm` component for adding new vehicles.
+
+#### Registration Flow
+
+* Modified the registration page to allow selecting either **User** or **Admin** during registration.
+* Updated the authentication flow to pass the selected role to the backend.
+* Explained the required frontend and backend changes to support role selection.
+* Verified the implementation by resolving issues and ensuring ESLint passed successfully.

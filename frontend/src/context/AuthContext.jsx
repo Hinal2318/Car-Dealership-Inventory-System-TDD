@@ -78,8 +78,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Register action
-  const register = async (email, password) => {
-    const response = await axiosClient.post('/auth/register', { email, password });
+  const register = async (email, password, role = 'user') => {
+    const response = await axiosClient.post('/auth/register', { email, password, role });
     
     // Automatically log the user in after successful registration
     await login(email, password);

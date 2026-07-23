@@ -2,7 +2,7 @@ const bcrypt=require('bcryptjs');
 const User=require("../../src/models/User.js");
 
 const registerUser=async(userData)=>{
-    const {email,password}=userData;
+    const {email,password,role}=userData;
 
     //Throw error if feild are missing
     if(!email || !password){
@@ -25,6 +25,7 @@ const registerUser=async(userData)=>{
     const newUser=await User.create({
         email:normalizeEmail,
         password:hashedPassword,
+        ...(role && ['user','admin'].includes(role) ? { role } : {}),
     })
     return newUser;
 }

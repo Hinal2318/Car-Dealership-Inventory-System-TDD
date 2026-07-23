@@ -5,8 +5,8 @@ const authController={
     //register user
     register: async(req,res)=>{
         try{
-            const {email,password}=req.body;
-            const user=await registerUser({email,password});
+            const {email,password,role}=req.body;
+            const user=await registerUser({email,password,role});
 
             return res.status(201).json({
                 message:'User registered sucessfully',

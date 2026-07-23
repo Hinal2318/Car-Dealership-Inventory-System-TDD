@@ -6,6 +6,7 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [role, setRole] = useState('user');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { register } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const RegisterPage = () => {
         setLoading(true);
 
         try {
-            await register(email, password);
+            await register(email, password, role);
             // Redirect to the dashboard on successful registration & automatic login
             navigate('/dashboard');
         } catch (err) {
@@ -104,6 +105,22 @@ const RegisterPage = () => {
                                 className="relative block w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2.5 text-white placeholder-slate-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                 placeholder="••••••••"
                             />
+                        </div>
+                        {/* Role Selector */}
+                        <div>
+                            <label htmlFor="role" className="block text-sm font-medium text-slate-300 mb-1">
+                                Account Type
+                            </label>
+                            <select
+                                id="role"
+                                name="role"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                className="relative block w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2.5 text-white focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            >
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                     </div>
 
