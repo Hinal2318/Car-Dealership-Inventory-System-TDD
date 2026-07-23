@@ -530,3 +530,29 @@ Provided substantial implementation assistance for the authentication pages.
 * Implemented loading and error states.
 * Redirected users to the dashboard after successful registration.
 * Explained the required updates in `App.jsx` to use the new page.
+
+## Prompt 20
+
+Implement the vehicle listing interface for my React frontend. Generate most of the required code and explain the necessary integration steps in the chat instead of modifying the project files directly.
+
+### AI Response
+
+Provided substantial implementation assistance for the vehicle dashboard.
+
+#### `src/components/VehicleCard.jsx`
+
+* Generated a reusable `VehicleCard` component.
+* Displayed vehicle make, model, category, price, and quantity.
+* Disabled the purchase button when the vehicle was out of stock.
+* Applied different styling for available and unavailable vehicles.
+* Triggered the purchase callback when the button was clicked.
+
+#### `src/pages/DashboardPage.jsx`
+
+* Generated the dashboard page.
+* Fetched vehicles from `GET /api/vehicles` on component mount.
+* Stored vehicle data in React state.
+* Rendered a responsive grid of `VehicleCard` components.
+* Implemented purchase functionality using `POST /api/vehicles/:id/purchase`.
+* Updated the purchased vehicle's quantity in local state.
+* Added loading, error, empty-state, and success feedback handling.
