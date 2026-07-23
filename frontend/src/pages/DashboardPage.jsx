@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axiosClient from '../api/axiosClient';
 import VehicleCard from '../components/VehicleCard';
+import SearchBar from '../components/SearchBar';
 
 const DashboardPage = () => {
   const [vehicles, setVehicles] = useState([]);
@@ -11,7 +12,9 @@ const DashboardPage = () => {
 
   // Fetch all vehicles on mount
   useEffect(() => {
-    const fetchVehicles = async () => {
+    const loadVehicles = async () => {
+      setLoading(true);
+      setError('');
       try {
         const response = await axiosClient.get('/vehicles');
         setVehicles(response.data);
@@ -21,9 +24,25 @@ const DashboardPage = () => {
         setLoading(false);
       }
     };
-
-    fetchVehicles();
+    loadVehicles();
   }, []);
+
+  // Handle search with filters
+  const handleSearch = async (filters) => {
+    setLoading(true);
+    setError('');
+    try {
+      const hasFilters = Object.keys(filters).length > 0;
+      const response = hasFilters
+        ? await axiosClient.get('/vehicles/search', { params: filters })
+        : await axiosClient.get('/vehicles');
+      setVehicles(response.data);
+    } catch (err) {
+      setError(err.response?.data?.error || 'Search failed.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Handle vehicle purchase
   const handlePurchase = async (vehicle) => {
@@ -58,6 +77,9 @@ const DashboardPage = () => {
         </h1>
         <p className="mt-2 text-slate-400">Browse and purchase available vehicles.</p>
       </div>
+
+      {/* Search Bar */}
+      <SearchBar onSearch={handleSearch} />
 
       {/* Feedback Messages */}
       {purchaseSuccess && (
